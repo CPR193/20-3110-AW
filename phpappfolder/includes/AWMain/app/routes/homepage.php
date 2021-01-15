@@ -15,7 +15,7 @@ $app->get('/', function(Request $request, Response $response) {
         'method' => 'get',
         'action' => 'index.php',
         'page_title' => APP_NAME,
-        'page_heading_1' => 'Hello yes, this is 20-3110-AW.',
+        'page_heading_1' => 'Hello yes, this is 20-3110-AW. :)',
         'page_text' => 'Hello world or something, IDK I\'m not a computer. Please give us extension!'
     ]);
 
