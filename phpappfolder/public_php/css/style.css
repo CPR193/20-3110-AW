@@ -1,0 +1,98 @@
+html
+{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+body
+{
+    color: black;
+    background-color: transparent;
+    background-image: url('../media/paper1.jpg');
+    font-family: arial, sans-serif;
+    font-size: 12pt;
+}
+/***********************************************/
+/* link styles                                 */
+/***********************************************/
+a:link
+{
+    color: #041EDE;
+    background-color: transparent;
+}
+a:hover
+{
+    color: #FF00FF;
+    background-color: transparent;
+}
+a:visited
+{
+    color: #FE482A;
+    background-color: transparent;
+}
+/***********************************************/
+/* division styles                             */
+/***********************************************/
+#banner-div
+{
+    text-align:center;
+}
+#page-content-div
+{
+}
+#clear-div
+{
+    clear:both;
+}
+#left-div
+{
+    float:left;
+    width:20%;
+}
+#right-div
+{
+    float:right;
+    width:80%;
+}
+/***********************************************/
+/* paragraph styles                            */
+/***********************************************/
+.cent
+{
+    text-align:center;
+}
+.heads
+{
+    font-family: arial,sans-serif;
+    font-size: 1.2em;
+    text-align: left;
+}
+.curr_page
+{
+    color: red;
+    font-weight: bolder;
+    text-shadow: black;
+    border: 1px solid red;
+}
+.result
+{
+    color: inherit;
+    font-weight: bold;
+    text-shadow: black;
+}
+/***********************************************/
+/* horizontal line styles                      */
+/***********************************************/
+hr
+{
+    width: 100%;
+    height: 1px;
+}
+.deepline
+{
+    width: 100%;
+    height: 10px;
+    color: #0000FE;
+    background-color:#0000FF;
+}
