@@ -8,7 +8,8 @@
 
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig(
-        $container['settings']['view']['template_path'], $container['settings']['view']['twig'],
+        $container['settings']['view']['template_path'],
+        $container['settings']['view']['twig'],
         ['debug' => true]
     );
 
@@ -40,5 +41,23 @@ $container['sqlQueries'] = function ($container) {
     $sql_queries = new \AWMain\SQLQueries();
 
     return $sql_queries;
+};
+
+$container['retrieveDataModel'] = function ($container) {
+    $retrieve_data_model = new \AWMain\RetrieveDataModel();
+
+    return $retrieve_data_model;
+};
+
+$container['soapWrapper'] = function($container){
+    $soap_wrapper = new \AWMain\SoapWrapper();
+
+    return $soap_wrapper;
+};
+
+$container['xmlParser'] = function ($container) {
+    $xml_parser = new \AWMain\XmlParser();
+
+    return $xml_parser;
 };
 

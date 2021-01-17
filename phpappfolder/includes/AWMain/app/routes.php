@@ -4,3 +4,6 @@
  */
 
 require 'routes/homepage.php';
+require 'routes/downloadSMS.php';
+require 'routes/sendSMS.php';
+require 'routes/displayStoredSMS.php';
