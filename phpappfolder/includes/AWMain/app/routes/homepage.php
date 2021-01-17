@@ -18,6 +18,5 @@ $app->get('/', function(Request $request, Response $response) {
         'page_heading_1' => 'Hello yes, this is 20-3110-AW. :)',
         'page_text' => 'Hello world or something, IDK I\'m not a computer. Please give us extension!'
     ]);
-
     return $html_output;
 })->setName('homepage');

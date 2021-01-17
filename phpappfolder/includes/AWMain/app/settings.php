@@ -10,14 +10,28 @@ ini_set('html_errors', 'On');
 ini_set('xdebug.trace_output_name', 'AWMain.%t');
 ini_set('xdebug.trace_format', 1);
 
-$app_url = dirname($_SERVER['SCRIPT_NAME']);
+define('DIRSEP', DIRECTORY_SEPARATOR);
+
+$app_url = $css_path = $_SERVER['SCRIPT_NAME'];
+$app_url = implode('/',explode('/', $app_url, -1));
 $css_path = $app_url . '/css/style.css';
-$log_file_path = 'p3t/phpappfolder/logs/';
+$log_file_path = '/logs/';
+
+$script_filename = $_SERVER["SCRIPT_FILENAME"];
+$arr_script_filename = explode('/', $script_filename, '-1');
+$script_path = implode('/', $arr_script_filename) . '/';
+
+$wsdl = 'https://m2mconnect.ee.co.uk/orange-soap/services/MessageServiceByCountry?wsdl';
 
 define('CSS_PATH', $css_path);
-define('APP_NAME', 'SMS thing (temp name)');
+define('APP_NAME', 'AW SMS M2M APP');
 define('LANDING_PAGE', $app_url);
 define('LOG_FILE_PATH', $log_file_path);
+
+define ('SMS_OUTPUT_PATH', 'media/SMS/');
+define ('SMS_FILE_PATH', $script_path);
+
+define('WSDL', $wsdl);
 
 $settings = [
     "settings" => [
@@ -33,8 +47,8 @@ $settings = [
                 'auto_reload' => true,
             ]
         ],
-        'pdo_settings' => [
-            'rdbms' => 'mysql',
+        'doctrine_settings' => [
+            'driver' => 'pdo_mysql',
             'host' => 'localhost',
             'db_name' => 'sms_db',
             'port' => '3386',
