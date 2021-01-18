@@ -25,8 +25,8 @@ $container['validator'] = function ($container) {
     return $validator;
 };
 
-$container['mainModel'] = function($container) {
-    $model = new \AWMain\MainModel();
+$container['m2mDatabaseModel'] = function($container) {
+    $model = new \AWMain\M2MDatabaseModel();
 
     return $model;
 };
@@ -43,10 +43,10 @@ $container['sqlQueries'] = function ($container) {
     return $sql_queries;
 };
 
-$container['retrieveDataModel'] = function ($container) {
-    $retrieve_data_model = new \AWMain\RetrieveDataModel();
+$container['m2mSoapModel'] = function ($container) {
+    $model = new \AWMain\M2MSoapModel();
 
-    return $retrieve_data_model;
+    return $model;
 };
 
 $container['soapWrapper'] = function($container){
@@ -59,5 +59,11 @@ $container['xmlParser'] = function ($container) {
     $xml_parser = new \AWMain\XmlParser();
 
     return $xml_parser;
+};
+
+$container['processOutput'] = function ($container) {
+    $process_output = new \AWMain\ProcessOutput();
+
+    return $process_output;
 };
 
