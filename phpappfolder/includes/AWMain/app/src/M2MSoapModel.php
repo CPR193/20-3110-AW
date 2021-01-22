@@ -27,6 +27,7 @@ class M2MSoapModel
         $arr_sms = [];
 
         $soap_client_handle = $this->soap_wrapper->createSoapClient();
+
         if ($soap_client_handle !== false) {
             $webservice_function = "peekMessages";
             $this->webservice_call_paramaters = $webservice_call_paramaters;
@@ -50,12 +51,27 @@ class M2MSoapModel
                     $n = $n+1;
                 }
             }
-
         }
         $this->result = $soapresult;
     }
 
     public function getResult() {
         return $this->result;
+    }
+
+    public function deliverSMS($webservice_call_paramaters){
+        $soapresult = [];
+
+        $soap_client_handle = $this->soap_wrapper->createSoapClient();
+
+        if ($soap_client_handle !== false) {
+            $webservice_function = "sendMessage";
+            $this->webservice_call_paramaters = $webservice_call_paramaters;
+            $webservice_value = 'returnCode';
+            $soapcall_result = $this->soap_wrapper->performSoapSend($soap_client_handle, $webservice_function, $webservice_call_paramaters, $webservice_value);
+
+            $soapresult = $soapcall_result;
+        }
+        $this->result = $soapresult;
     }
 }

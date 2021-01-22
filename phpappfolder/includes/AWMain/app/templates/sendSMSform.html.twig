@@ -1,0 +1,25 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div id="page-content-div" xmlns="http://www.w3.org/1999/html">
+        <h2>{{ page_heading_2 }}</h2>
+        <p>{{ page_text }}</p>
+        <form action="{{ action }}" method="{{ method }}">
+            <fieldset>
+                <legend>SMS Send Details</legend>
+                <p><label for="ee_username"> EE Username: </label>
+                    <input name="ee_username" type="text" id="ee_username" size="10" autofocus value=""/>
+                </p>
+                <p><label for="ee_password"> EE Password: </label>
+                    <input name="ee_password" type="password" id="ee_password" size="10" value=""/>
+                </p>
+                <p><label for="send_phone_nr"> Phone Number: </label>
+                    <input name="send_phone_nr" type="text" id="send_phone_nr" size="10" value=""/>
+                </p>
+                <p><label for="msg_box"> Message: </label></p>
+                <textarea name="msg_box" id="msg_box" rows="10" cols="50" placeholder="Enter Message Here."></textarea>
+                <br>
+                <input type="submit" value="{{ submit_button_text }}">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

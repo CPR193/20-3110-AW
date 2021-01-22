@@ -17,6 +17,7 @@ $app->post('/downloadSMSresult', function(Request $request, Response $response) 
         [
          'css_path' => CSS_PATH,
          'landing_page' => LANDING_PAGE,
+         'method' => 'get',
          'action' => 'downloadSMS',
          'page_title' => APP_NAME,
          'page_heading_1' => APP_NAME,

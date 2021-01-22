@@ -41,4 +41,20 @@ class SoapWrapper
         }
         return $soap_call_result;
     }
+
+    public function performSoapSend($soap_client, $webservice_function, $webservice_call_paramaters, $webservice_value) {
+        $soap_call_result = null;
+        $raw_xml = '';
+
+        if ($soap_client) {
+            try {
+                $webservice_call_result = $soap_client->{$webservice_function}($webservice_call_paramaters['ee_username'], $webservice_call_paramaters['ee_password'], $webservice_call_paramaters['send_phone_nr'], $webservice_call_paramaters['msg_box'], false, "SMS");
+                $soap_call_result = $webservice_call_result; //->{$webservice_value};
+            }
+            catch (\SoapFault $exception) {
+                $soap_call_result = $exception;
+            }
+        }
+        return $soap_call_result;
+    }
 }
