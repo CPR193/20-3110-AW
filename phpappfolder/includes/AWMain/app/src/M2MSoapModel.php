@@ -21,7 +21,7 @@ class M2MSoapModel
         $this->soap_wrapper = $soap_wrapper;
     }
 
-    public function retrieveSMS() {
+    public function retrieveSMS($webservice_call_paramaters) {
 
         $soapresult = [];
         $arr_sms = [];
@@ -29,7 +29,7 @@ class M2MSoapModel
         $soap_client_handle = $this->soap_wrapper->createSoapClient();
         if ($soap_client_handle !== false) {
             $webservice_function = "peekMessages";
-            $webservice_call_paramaters = ["20_2441811", "QAZxsw#EEM2M", "100", ""];
+            $this->webservice_call_paramaters = $webservice_call_paramaters;
             $webservice_value = '<message_content>';
             $soapcall_result = $this->soap_wrapper->performSoapCall($soap_client_handle, $webservice_function, $webservice_call_paramaters, $webservice_value);
 

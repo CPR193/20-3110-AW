@@ -32,7 +32,7 @@ class SoapWrapper
 
         if ($soap_client) {
             try {
-                $webservice_call_result = $soap_client->{$webservice_function}($webservice_call_paramaters[0], $webservice_call_paramaters[1], $webservice_call_paramaters[2], $webservice_call_paramaters[3]);
+                $webservice_call_result = $soap_client->{$webservice_function}($webservice_call_paramaters['ee_username'], $webservice_call_paramaters['ee_password'], $webservice_call_paramaters['sms_dl_nr']);
                 $soap_call_result = $webservice_call_result; //->{$webservice_value};
             }
             catch (\SoapFault $exception) {
