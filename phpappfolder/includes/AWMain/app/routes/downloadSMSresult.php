@@ -52,3 +52,15 @@ function downloadSMS($app, $dl_param) {
 
     return $dl_result;
 }
+
+function parseSMS($app, $dl_sms) {
+    $parse_result = [];
+
+    $xml_parser = $app->getContainer()->get('xmlParser');
+    $xml_parser->setXmlStringToParse($dl_sms);
+    $xml_parser->parseTheXmlString();
+
+    $parse_result = $xml_parser->getParsedData();
+
+    return $parse_result;
+}

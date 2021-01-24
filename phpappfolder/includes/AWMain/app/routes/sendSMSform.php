@@ -39,6 +39,7 @@ function sendSMS($app, $send_param) {
     if (is_object($soap_client)) {
         try {
             $soap_model->setSoapWrapper($soap_wrapper);
+            $send_param['send_phone_nr'] = phoneNrValidator($app, $send_param['send_phone_nr']);
             $soap_model->deliverSMS($send_param);
 
             $send_result = $soap_model->getResult();
@@ -49,4 +50,13 @@ function sendSMS($app, $send_param) {
     }
 
     return $send_result;
+}
+
+function phoneNrValidator($app, $thing) {
+    $valid_data = null;
+
+    $validator = $app->getContainer()->get('validator');
+    $valid_data = $validator->validatePhoneNr($thing);
+
+    return $valid_data;
 }

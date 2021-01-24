@@ -1,5 +1,7 @@
 <?php
-
+/** Wrapper clas for communicating to a web-service via a SOAP client
+ *
+ */
 
 namespace AWMain;
 
@@ -33,7 +35,7 @@ class SoapWrapper
         if ($soap_client) {
             try {
                 $webservice_call_result = $soap_client->{$webservice_function}($webservice_call_paramaters['ee_username'], $webservice_call_paramaters['ee_password'], $webservice_call_paramaters['sms_dl_nr']);
-                $soap_call_result = $webservice_call_result; //->{$webservice_value};
+                $soap_call_result = $webservice_call_result;//->{$webservice_value};
             }
             catch (\SoapFault $exception) {
                 $soap_call_result = $exception;

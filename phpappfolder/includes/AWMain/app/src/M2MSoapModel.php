@@ -1,5 +1,7 @@
 <?php
-
+/** Collection class for storing data obtained through the Soap Wrapper
+ *
+ */
 
 namespace AWMain;
 
@@ -31,7 +33,7 @@ class M2MSoapModel
         if ($soap_client_handle !== false) {
             $webservice_function = "peekMessages";
             $this->webservice_call_paramaters = $webservice_call_paramaters;
-            $webservice_value = '<message_content>';
+            $webservice_value = 'message';
             $soapcall_result = $this->soap_wrapper->performSoapCall($soap_client_handle, $webservice_function, $webservice_call_paramaters, $webservice_value);
 
             $arr_sms = $soapcall_result;

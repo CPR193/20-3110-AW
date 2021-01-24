@@ -8,7 +8,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/', function(Request $request, Response $response) use ($app) {
 
-
     $html_output = $this->view->render($response,
     'homepageform.html.twig',
     [
