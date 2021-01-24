@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Declaring dependencies and registering components of containers
+ * Declaring dependencies and registering new components of containers
  *
  * @package AWMain
+ * @Author 20-3110-AW - Cosmin
  */
 
 $container['view'] = function ($container) {

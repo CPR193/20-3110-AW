@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * Xml Parser Class that parses and tags Xml string data
+ *
+ * @package AWMain
+ */
 namespace AWMain;
 
 

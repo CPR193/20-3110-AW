@@ -15,8 +15,29 @@
                 <p><label for="send_phone_nr"> Phone Number: </label>
                     <input name="send_phone_nr" type="text" id="send_phone_nr" size="10" value=""/>
                 </p>
-                <p><label for="msg_box"> Message: </label></p>
-                <textarea name="msg_box" id="msg_box" rows="10" cols="50" placeholder="Enter Message Here."></textarea>
+                <h3> {{ page_heading_3 }}</h3>
+                <p>Please select Switch status below:</p>
+                <label>Switch 1: On <input id="switch_1_param" name="switch_1_param" type="radio" value="On"/> Off
+                    <input id="switch_1_param" name="switch_1_param" type="radio" value="Off" checked="checked"/></label>
+                <br>
+                <label>Switch 2: On <input id="switch_2_param" name="switch_2_param" type="radio" value="On"/> Off
+                <input id="switch_2_param" name="switch_2_param" type="radio" value="Off" checked="checked"/></label>
+                <br>
+                <label>Switch 3: On <input id="switch_3_param" name="switch_3_param" type="radio" value="On"/> Off
+                    <input id="switch_3_param" name="switch_3_param" type="radio" value="Off" checked="checked"/></label>
+                <br>
+                <label>Switch 4: On <input id="switch_4_param" name="switch_4_param" type="radio" value="On"/> Off
+                    <input id="switch_4_param" name="switch_4_param" type="radio" value="Off" checked="checked"/></label>
+                <br><br>
+                <label>Please select Fan Direction: Forward <input id="fan_param" name="fan_param" type="radio" value="Forward"/> Reverse
+                    <input id="fan_param" name="fan_param" type="radio" value="Reverse" checked="checked"/></label>
+                <br>
+                <p><label for="heater_param"> Registered Heater Temperature: </label>
+                    <input name="heater_param" type="number" id="heater_param" size="5" min="-100" max="300" placeholder="&deg;C" value=""/>
+                </p>
+                <p><label for="keypad_param"> Last Keypad Number Entered: </label>
+                    <input name="keypad_param" type="number" id="keypad_param" size="5" min="0" max="9999" placeholder="4-digit" value=""/>
+                </p>
                 <br>
                 <input type="submit" value="{{ submit_button_text }}">
             </fieldset>

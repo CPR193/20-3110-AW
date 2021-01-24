@@ -1,6 +1,8 @@
 <?php
 /**
  * Home page of the application
+ *
+ * @package AWMain
  */
 
 use \Psr\Http\Message\ServerRequestInterface as Request;

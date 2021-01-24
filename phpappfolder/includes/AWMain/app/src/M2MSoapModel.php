@@ -1,6 +1,9 @@
 <?php
-/** Collection class for storing data obtained through the Soap Wrapper
+/**
+ * Collection class for storing parameter data for the SOAP Wrapper Class
  *
+ * @package AWMain
+ * @Author 20-3110-AW - Cosmin
  */
 
 namespace AWMain;
@@ -12,6 +15,9 @@ class M2MSoapModel
     private $soap_wrapper;
     private $xml_parser;
 
+    /**
+     * Constructor function for the Class
+     */
     public function __construct(){
         $this->soap_wrapper = null;
         $this->xml_parser = null;
@@ -19,10 +25,21 @@ class M2MSoapModel
     }
     public function __destruct(){}
 
+    /**
+     * Function that sets the SOAP wrapper handle
+     *
+     * @param $soap_wrapper - variable containing the SOAP wrapper handle
+     */
     public function setSoapWrapper($soap_wrapper) {
         $this->soap_wrapper = $soap_wrapper;
     }
 
+    /**
+     * Function that retrieves messages through the SOAP wrapper via the "peekMessages" web-service function
+     * and returns the content between the <message></message> and <message_content></message_content> tags
+     *
+     * @param $webservice_call_paramaters - variable containing the SOAP call parameters
+     */
     public function retrieveSMS($webservice_call_paramaters) {
 
         $soapresult = [];
@@ -33,8 +50,7 @@ class M2MSoapModel
         if ($soap_client_handle !== false) {
             $webservice_function = "peekMessages";
             $this->webservice_call_paramaters = $webservice_call_paramaters;
-            $webservice_value = 'message';
-            $soapcall_result = $this->soap_wrapper->performSoapCall($soap_client_handle, $webservice_function, $webservice_call_paramaters, $webservice_value);
+            $soapcall_result = $this->soap_wrapper->performSoapCall($soap_client_handle, $webservice_function, $webservice_call_paramaters);
 
             $arr_sms = $soapcall_result;
             $n = 1;
@@ -57,10 +73,20 @@ class M2MSoapModel
         $this->result = $soapresult;
     }
 
+    /**
+     * Function that returns the SOAP call results array
+     *
+     * @return array - array containing the results of the SOAP call
+     */
     public function getResult() {
         return $this->result;
     }
 
+    /**
+     * Function that delivers messages through the SOAP wrapper via the "sendMessage" web-service function
+      *
+     * @param $webservice_call_paramaters - variable containing the SOAP call parameters
+     */
     public function deliverSMS($webservice_call_paramaters){
         $soapresult = [];
 
@@ -69,8 +95,7 @@ class M2MSoapModel
         if ($soap_client_handle !== false) {
             $webservice_function = "sendMessage";
             $this->webservice_call_paramaters = $webservice_call_paramaters;
-            $webservice_value = 'returnCode';
-            $soapcall_result = $this->soap_wrapper->performSoapSend($soap_client_handle, $webservice_function, $webservice_call_paramaters, $webservice_value);
+            $soapcall_result = $this->soap_wrapper->performSoapCall($soap_client_handle, $webservice_function, $webservice_call_paramaters);
 
             $soapresult = $soapcall_result;
         }

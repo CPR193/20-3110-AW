@@ -1,6 +1,9 @@
 <?php
-/** Send SMS request page
+/**
+ * Page file that contains the form needed for sending telemetry data
  *
+ * @package AWMain
+ * @author 20-3110-AW - Cosmin
  */
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -21,6 +24,7 @@ $app->get('/sendSMS', function(Request $request, Response $response) use ($app) 
         'page_title' => APP_NAME,
         'page_heading_1' => APP_NAME,
         'page_heading_2' => 'Enter SMS details',
+        'page_heading_3' => 'Telemetry Message Parameters',
         'submit_button_text' => $submit_button_text,
         'page_text' => $page_text
     ]);

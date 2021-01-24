@@ -1,10 +1,11 @@
 <?php
 
 /**
- * bootstraop file which links the app path, settings path and then the settings themselves,
+ * Bootstraop file which links the app path, settings path and then the settings themselves,
  * the dependencies file and the routes file.
  *
  * @package AWMain
+ * @author 20-3110-AW - Cosmin
  */
 
 session_start();

@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * Class that processes the output of a html page
+ *
+ * @package AWMain
+ */
 namespace AWMain;
 
 

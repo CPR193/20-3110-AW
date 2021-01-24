@@ -1,6 +1,9 @@
 <?php
 /**
- * Route file that declares redirect routes to pages
+ * Route file that declares page routes
+ *
+ * @package AWMain
+ * @Author 20-3110-AW
  */
 
 require 'routes/homepage.php';
