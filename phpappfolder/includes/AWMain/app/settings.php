@@ -17,6 +17,8 @@ $app_url = $css_path = $_SERVER['SCRIPT_NAME'];
 $app_url = implode('/',explode('/', $app_url, -1));
 $css_path = $app_url . '/css/style.css';
 $log_file_path = '/logs/';
+$log_file_name = 'AWMain_log.log';
+$log_file = $log_file_path.$log_file_name;
 
 $script_filename = $_SERVER["SCRIPT_FILENAME"];
 $arr_script_filename = explode('/', $script_filename, '-1');
@@ -28,6 +30,8 @@ define('CSS_PATH', $css_path);
 define('APP_NAME', 'AW SMS M2M APP');
 define('LANDING_PAGE', $app_url);
 define('LOG_FILE_PATH', $log_file_path);
+define('LOG_FILE_NAME', $log_file_name);
+define('LOG_FILE', $log_file);
 
 define ('SMS_OUTPUT_PATH', 'media/SMS/');
 define ('SMS_FILE_PATH', $script_path);

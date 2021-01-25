@@ -8,6 +8,8 @@
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 $app->post('/sendSMSform', function (Request $request, Response $response) use ($app) {
     $tainted_param = $request ->getParsedBody();
@@ -46,6 +48,8 @@ function sendSMS($app, $send_param) {
     $soap_wrapper = $app->getContainer()->get('soapWrapper');
     $soap_client = $soap_wrapper->createSoapClient();
     $soap_model = $app->getContainer()->get('m2mSoapModel');
+    $logger = $app->getContainer()->get('logger');
+    $logger->pushHandler(new StreamHandler(LOG_FILE, Logger::WARNING));
 
     if (is_object($soap_client)) {
         try {
@@ -57,6 +61,7 @@ function sendSMS($app, $send_param) {
         }
         catch (\SoapFault $exception) {
             $send_result = $exception;
+            $logger->error($exception);
         }
     }
     return $send_result;

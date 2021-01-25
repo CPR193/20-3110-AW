@@ -6,13 +6,13 @@ namespace AWMain;
 use PDO;
 use PDOException;
 
-class DatabaseWrapper impliments AWMainInterface;
+class DatabaseWrapper
 
 {
     public function __construct(){}
     public function __destruct(){}
 
-private function createAWMainVar($AWMain_key, $AWMain_value)
+    private function createAWMainVar($AWMain_key, $AWMain_value)
 {
     $query_string = $this->sql_queries->createAWMainVar();
 
@@ -25,7 +25,7 @@ private function createAWMainVar($AWMain_key, $AWMain_value)
     $this->safeQuery($query_string, $query_parameters);
 }
 
-private function storeAWMainVar($AWMain_key, $AWMain_value)
+    private function storeAWMainVar($AWMain_key, $AWMain_value)
 {
     $query_string = $this->sql_queries->setAWMainVar();
 
@@ -38,7 +38,7 @@ private function storeAWMainVar($AWMain_key, $AWMain_value)
     $this->safeQuery($query_string, $query_parameters);
 }
 
-private function safeQuery($query_string, $params = null)
+    private function safeQuery($query_string, $params = null)
 {
     $this->errors['db_error'] = false;
     $query_parameters = $params;
@@ -58,7 +58,6 @@ private function safeQuery($query_string, $params = null)
         $this->AWMain_logger->warning('Error connecting to database');
     }
     return $this->errors['db_error'];
-    }
 }
-
+}
 

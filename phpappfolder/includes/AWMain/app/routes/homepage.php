@@ -18,8 +18,8 @@ $app->get('/', function(Request $request, Response $response) use ($app) {
         'method' => 'get',
         'action' => 'index.php',
         'page_title' => APP_NAME,
-        'page_heading_1' => 'Hello yes, this is 20-3110-AW. :)',
-        'page_text' => 'Hello world or something, IDK I\'m not a computer. Please give us extension!',
+        'page_heading_1' => '20-3110-SW | M2M SMS',
+        'page_text' => '',
         'send_sms' => LANDING_PAGE . '/sendSMS',
         'download_sms' => LANDING_PAGE . '/downloadSMS'
     ]);

@@ -68,3 +68,9 @@ $container['processOutput'] = function ($container) {
     return $process_output;
 };
 
+$container['logger'] = function ($container) {
+    $logger = new \Monolog\Logger('logger');
+
+    return $logger;
+};
+
