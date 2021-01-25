@@ -1,0 +1,27 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div id="page-content-div">
+        <div class="column">
+    <h2>{{ page_heading_2 }}<br><span id="phone">&#x260E;</span></h2>
+            <p>{{ page_text }}</p>
+    <form action="{{ action }}" method="{{ method }}">
+        <fieldset id="download_form">
+            <p><label for="ee_username">EE Username: </label>
+                <input name="ee_username" type="text" id="ee_username" size="10" value=""/>
+            </p>
+
+            <p><label for="ee_password">EE Password: </label>
+                <input name="ee_password" type="password" id="ee_password" size="10" value=""/>
+            </p>
+
+            <p><label for="sms_dl_nr">Nr. of Messages: </label>
+                <input name="sms_dl_nr" type="text" id="sms_dl_nr" size="7" value=""/>
+            </p>
+
+
+            <input class="btn" type="submit" value="{{ submit_button_text }}">
+        </fieldset>
+    </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{
+    "name": "dmu/php_apps",
+    "type": "labwork",
+    "require": {
+        "slim/slim": "^3.12",
+        "slim/psr7": "^1.1",
+        "slim/twig-view": "^2.4",
+        "monolog/monolog": "^2",
+        "doctrine/orm": "^2.6",
+        "ext-sodium": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Country\\": "country_details/app/src",
+            "Dictionary\\": "dictionary/app/src",
+            "Encryption\\": "encryption/app/src",
+            "Sessions\\": "sessions/app/src",
+            "StockQuotes\\": "stockquotes/app/src",
+            "TempConv\\": "temperature_conversion/app/src",
+            "AWMain\\": "AWMain/app/src"
+        }
+    }
+}
