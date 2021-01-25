@@ -1,9 +1,6 @@
 <?php
 /**
- * Page file containing the form needed to download messages through the SOAP client
- *
- * @package AWMain
- * @author 20-3110-AW - Cosmin
+ * Download bulk SMS request page
  */
 
 use \Psr\Http\Message\ServerRequestInterface as Request;

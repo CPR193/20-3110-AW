@@ -1,9 +1,8 @@
 <?php
 /**
- * Settings file which declares and stores app settings
+ * Settings declared
  *
  * @package AWMain
- * @author  20-3110-AW - Cosmin
  */
 
 ini_set('display_errors', 'On');

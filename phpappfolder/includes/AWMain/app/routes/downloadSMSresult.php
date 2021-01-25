@@ -1,9 +1,6 @@
 <?php
 /**
- * Page file that contains the results of the download SMS page
- *
- * @package AWMain
- * @Author 20-3110-AW - Cosmin
+ * Download bulk SMS result page
  */
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -34,14 +31,6 @@ $app->post('/downloadSMSresult', function(Request $request, Response $response) 
     return $html_output;
 })->setName('downloadSMSresult');
 
-
-/**
- * Function that downloads a number of messages through the SOAP client based on the form of the download SMS page
- *
- * @param $app - variable containing the application data used to get M2MSoapModel and SOAP Wrapper functions
- * @param $dl_param - variable containing parameters needed for the SOAP client web-function call
- * @return array|Exception|SoapFault - array containing SOAP client errors
- */
 function downloadSMS($app, $dl_param) {
     $dl_result = [];
 
@@ -62,16 +51,4 @@ function downloadSMS($app, $dl_param) {
     }
 
     return $dl_result;
-}
-
-function parseSMS($app, $dl_sms) {
-    $parse_result = null;
-
-    $xml_parser = $app->getContainer()->get('xmlParser');
-    $xml_parser->setXmlStringToParse($dl_sms);
-    $xml_parser->parseTheXmlString();
-
-    $parse_result = $xml_parser->getParsedData();
-
-    return $parse_result;
 }
