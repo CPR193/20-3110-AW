@@ -2,8 +2,7 @@
 /**
  * Index of the application that redirects to the bootstrap
  *
- * @package AWMain;
- * @author 20-3110-AW - Cosmin
+ * @package AWMain
  */
 
 
@@ -19,7 +18,7 @@ if ($make_trace == true && function_exists(xdebug_start_trace())) {
 }
 
 
-include 'AWMain/bootstrap.php';
+include_once 'AWMain/bootstrap.php';
 
 if ($make_trace == true && function_exists(xdebug_stop_trace())) {
     xdebug_stop_trace();
