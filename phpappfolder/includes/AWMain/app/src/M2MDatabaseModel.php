@@ -11,14 +11,7 @@ class M2MDatabaseModel
     public function __destruct(){}
 }
 
-CREATE DATABASE IF NOT EXISTS sms_db
-
-CREATE TABLE sms_msg_table (
-    source_sim int,
-    email_address varchar(255),
-    name varchar (255),
-    message_content varchar(80),
-);
+$this->callSQL('database.sql')
 
  public function storeData()
 {
@@ -75,13 +68,13 @@ if($query->row_count() > 0) {
 {
     $store_result = false;
 
-    $this->session_wrapper_database->setSqlQueries($this->sql_queries);
-    $this->session_wrapper_database->setDatabaseConnectionSettings($this->database_connection_settings);
-    $this->session_wrapper_database->SetLogger($this->session_logger);
-    $this->session_wrapper_database->makeDatabaseConnection();
+    $this->DatabaseWrapper->setSqlQueries($this->sql_queries);
+    $this->DatabaseWrapper->setDatabaseConnectionSettings($this->database_connection_settings);
+    $this->DatabaseWrapper->SetLogger($this->session_logger);
+    $this->DatabaseWrapper->makeDatabaseConnection();
 
-    $store_result_username = $this->session_wrapper_database->setSessionVar('user_name', $this->username);
-    $store_result_password = $this->session_wrapper_database->setSessionVar('user_password', $this->password);
+    $store_result_username = $this->DatabaseWrapper->setSessionVar('user_name', $this->username);
+    $store_result_password = $this->DatabaseWrapper->setSessionVar('user_password', $this->password);
 
     if ($store_result_username !== false && $store_result_password !== false) {
         $store_result = true;
