@@ -1,6 +1,6 @@
-CREATE DATABASE sms_db
+CREATE DATABASE IF NOT EXISTS sms_db;
 
-USE sms_db
+USE sms_db;
 
 CREATE TABLE sms_msg_table (
     source_sim int,
